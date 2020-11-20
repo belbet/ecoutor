@@ -2,7 +2,7 @@ module.exports = {
     ecoutor: {
         category: process.env.LISTEN_CATEGORY,
         source_clubs: process.env.TABLE_SOURCE_CLUBS,
-        dest_clubs: process.env.TABLE_SOURCE_CLUBS,
+        dest_clubs: process.env.TABLE_DEST_CLUBS,
     },
     rethinkdb: {
         host: process.env.RDB_HOST,

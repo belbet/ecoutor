@@ -51,7 +51,7 @@ async.waterfall([
     });
   },
   function registerClubsSourcesChanges(connection, callback) {
-    r.table(process.env.RDB_TABLE_SOURCE_CLUBS).changes().run(connection, (err, cursor) => {
+    r.table(config.ecoutor.source_clubs).changes().run(connection, (err, cursor) => {
       cursor.each(function (err, row) {
         if (err) throw err;
         clubs.addOrReplace(row.old_value, row.new_value)
@@ -59,7 +59,7 @@ async.waterfall([
     }, callback(null, connection))
   },
   function registerClubsDestChanges(connection, callback) {
-    r.table(process.env.RDB_TABLE_DEST_CLUBS).changes().run(connection, (err, cursor) => {
+    r.table(config.ecoutor.dest_clubs).changes().run(connection, (err, cursor) => {
       cursor.each(function (err, row) {
         if (err) throw err;
         clubs.addOrReplace(row.old_value, row.new_value)

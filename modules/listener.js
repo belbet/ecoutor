@@ -1,4 +1,4 @@
-var config = require(__dirname + '/modules/config.js');
+var config = require('./config.js');
 
 const clubs = require('./clubs');
 const matches = require('./matches');
@@ -68,7 +68,7 @@ function registerNewNameIfDifferent(club, name) {
         return
     }
     club.Name = name
-    r.table(config.ecoutor.dest_club).insert(club)
+    // r.table(config.ecoutor.dest_club).insert(club).run()
 }
 
 function receiveJson(data) {
